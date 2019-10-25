@@ -1,0 +1,15 @@
+<div class="modal" [ngStyle]="{visibility: visible ? 'visible' : 'hidden'}">
+     <div class="modal-pane"></div>
+    <div class="modal-content">
+        <div class="dialog">
+            <div class="dialog-header">{{title}}</div>
+            <div class="dialog-content">
+                <ng-content></ng-content>
+            </div>
+            <div class="dialog-footer">
+                <button *ngIf="okVisible == true || okVisible == 'true'" type="button" (click)="ok()">OK</button>
+                <button *ngIf="cancelVisible == true || cancelVisible == 'true'" type="button" (click)="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

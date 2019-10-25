@@ -1,0 +1,27 @@
+<div class="page">
+    <div class="header">
+        <bsb-menu title="Buzzwords"></bsb-menu>
+    </div>
+    <div class="content">
+        <form [formGroup]="formGroup">
+            <div class="form-group">
+                <label>Meeting</label>
+                <select formControlName="category">
+                    <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>New buzzword</label>
+                <div class="input-group">
+                    <input type="text" formControlName="keyword">
+                    <button type="button" (click)="add()" [disabled]="!canAdd"><span class="fas fa-plus"></span></button>
+                </div>
+            </div>
+            <label>List of buzzwords</label>
+            <div *ngFor="let k of keywords" class="pill">
+                <span>{{k}}</span>
+                <button type="button" (click)="remove(k)">&times;</button>
+            </div>
+        </form>
+    </div>
+</div>

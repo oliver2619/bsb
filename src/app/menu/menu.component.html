@@ -1,0 +1,31 @@
+<div class="menu-bar">
+    <div class="menu-bar-item-group">
+        <h1 class="menu-bar-item">{{title}}</h1>
+    </div>
+    <ng-content></ng-content>
+    <div class="menu-bar-item-group">
+        <div class="menu-bar-item">
+            <a (click)="toggleDropdown()" href="javascript:;" class="fas fa-bars button"></a>
+            <bsb-dropdown>
+                <div class="dropdown-item">
+                    <a routerLink="/categories" href="javascript:;">Meetings</a>
+                </div>
+                <div *ngIf="keywordsVisible" class="dropdown-item">
+                    <a routerLink="/keywords" href="javascript:;">Buzzwords</a>
+                </div>
+                <div *ngIf="newGameVisible" class="dropdown-item">
+                    <a routerLink="/newGame" href="javascript:;">New game</a>
+                </div>
+                <div *ngIf="gameVisible" class="dropdown-item">
+                    <a routerLink="/game" href="javascript:;">Game</a>
+                </div>
+                <div class="dropdown-item">
+                    <a routerLink="/settings" href="javascript:;">Settings</a>
+                </div>
+                <div class="dropdown-item">
+                    <a routerLink="/about" href="javascript:;">About</a>
+                </div>
+            </bsb-dropdown>
+        </div>
+    </div>
+</div>

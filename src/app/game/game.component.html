@@ -1,0 +1,21 @@
+<div class="page">
+    <div class="header">
+        <bsb-menu title="Game">
+            <div class="menu-bar-item-group">
+                <div class="menu-bar-item">
+                    <a (click)="reset()" href="javascript:;" class="button">Reset</a>
+                </div>
+            </div>
+        </bsb-menu>
+    </div>
+    <div class="content" [ngClass]="{'matrix-3': size == 3, 'matrix-4': size == 4, 'matrix-5': size == 5}">
+        <ng-container *ngFor="let row of matrix; let y = index">
+            <ng-container *ngFor="let kw of row; let x = index">
+                <button type="button" (click)="toggle(x, y)" [ngClass]="{selected: kw.selected}">{{kw.name}}</button>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
+<bsb-dialog ok="true" title="Stand up and shout">
+    <h1>Bullshit!!!</h1>
+</bsb-dialog>

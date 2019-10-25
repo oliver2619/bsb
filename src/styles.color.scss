@@ -1,0 +1,130 @@
+.color-schema-green {
+    background-color: white;
+    color: black;
+
+    .header, .footer, .dialog-header, button, .pill {
+        background-color: #e0f0e0;
+        color: black;
+    }
+
+    button[disabled] {
+        color: rgba(black, .5);
+    }
+
+    .pill button, .dialog, .modal-pane, .dropdown-menu {
+        background-color: white;
+        color: black;
+    }
+
+    input, select, a, a:visited, a:hover {
+        color: #4040d0;
+
+        &[readonly] {
+            color: black;
+        }
+    }
+
+    .matrix-3 button.selected, .matrix-4 button.selected, .matrix-5 button.selected {
+        box-shadow: 0 0 2px 3px #a00000;
+        border-color: #a00000;
+        color: #a00000;
+        background-color: #fff0e0;
+    }
+
+    .dialog {
+        box-shadow: 0 0 2rem #808080;
+    }
+
+    button, input, select, .input-group, .pill, .dropdown-menu, .dialog, .dialog-header {
+        border-color: #808080;
+    }
+}
+
+.color-schema-dark {
+    background-color: black;
+    color: white;
+
+    .header, .footer, .dialog-header, button, .pill {
+        background-color: #606060;
+        color: white;
+    }
+
+    button[disabled] {
+        color: rgba(white, .5);
+    }
+
+    .pill button, .dialog, .modal-pane, .dropdown-menu {
+        background-color: black;
+        color: white;
+    }
+
+    a, a:visited, a:hover {
+        color: #60c0ff;
+    }
+
+    input, select {
+        color: #60c0ff;
+        background-color: black;
+
+        &[readonly] {
+            color: white;
+        }
+    }
+
+    .matrix-3 button.selected, .matrix-4 button.selected, .matrix-5 button.selected {
+        box-shadow: 0 0 2px 3px #ff6060;
+        border-color: #ff6060;
+        color: #ff6060;
+        background-color: #806060;
+    }
+
+    .dialog {
+        box-shadow: 0 0 2rem #808080;
+    }
+
+    button, input, select, .input-group, .pill, .dropdown-menu, .dialog, .dialog-header {
+        border-color: #808080;
+    }
+}
+
+.color-schema-orange {
+    background-color: white;
+    color: black;
+
+    .header, .footer, .dialog-header, button, .pill {
+        background-color: #ffe0c0;
+        color: black;
+    }
+
+    button[disabled] {
+        color: rgba(black, .5);
+    }
+
+    .pill button, .dialog, .modal-pane, .dropdown-menu {
+        background-color: white;
+        color: black;
+    }
+
+    input, select, a, a:visited, a:hover {
+        color: #4040d0;
+
+        &[readonly] {
+            color: black;
+        }
+    }
+
+    .matrix-3 button.selected, .matrix-4 button.selected, .matrix-5 button.selected {
+        box-shadow: 0 0 2px 3px #a00000;
+        border-color: #a00000;
+        color: #a00000;
+        background-color: #fff0e0;
+    }
+
+    .dialog {
+        box-shadow: 0 0 2rem #808080;
+    }
+
+    button, input, select, .input-group, .pill, .dropdown-menu, .dialog, .dialog-header {
+        border-color: #808080;
+    }
+}

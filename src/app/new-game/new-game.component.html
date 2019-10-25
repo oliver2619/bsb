@@ -1,0 +1,26 @@
+<div class="page">
+    <div class="header">
+        <bsb-menu title="New game"></bsb-menu>
+    </div>
+    <div class="content">
+        <form [formGroup]="formGroup">
+            <div class="form-group">
+                <label>Meeting</label>
+                <select formControlName="category">
+                    <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Buzzwords: {{selected}}</label>
+            </div>
+            <div class="form-group">
+                <label>Level</label>
+                <div class="button-list">
+                    <button type="button" (click)="start(3)" [disabled]="!canStart(3)">Easy</button>
+                    <button type="button" (click)="start(4)" [disabled]="!canStart(4)">Medium</button>
+                    <button type="button" (click)="start(5)" [disabled]="!canStart(5)">Hard</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
