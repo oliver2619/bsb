@@ -17,7 +17,7 @@
                     <button type="button" (click)="add()" [disabled]="!canAdd"><span class="fas fa-plus"></span></button>
                 </div>
             </div>
-            <label>List of buzzwords</label>
+            <label>List of buzzwords ({{numberOfKeywords}})</label>
             <div *ngFor="let k of keywords" class="pill">
                 <span>{{k}}</span>
                 <button type="button" (click)="remove(k)">&times;</button>

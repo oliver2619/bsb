@@ -30,6 +30,10 @@ export class KeywordsComponent {
         const value: FormGroupModel = this.formGroup.value;
         return this.categoriesService.getKeywords(value.category);
     }
+    
+    get numberOfKeywords(): number {
+        return this.keywords.length;
+    }
 
     constructor(private categoriesService: CategoriesService, formBuilder: FormBuilder) {
         this.formGroup = formBuilder.group({});

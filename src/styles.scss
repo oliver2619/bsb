@@ -211,13 +211,16 @@ select {
 
 @mixin matrix($columns) {
     display: grid;
-    grid-template-columns: repeat($columns, auto);
+    grid-template-columns: repeat($columns, 1fr);
+    grid-template-rows: repeat($columns, 1fr);
     justify-items: stretch;
     align-items: stretch;    
     grid-gap: .5rem;
 
     button {
-        font-size: $font-size * 1.5;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         &.selected {
             text-decoration: line-through;
@@ -227,14 +230,38 @@ select {
 
 .matrix-3 {
     @include matrix(3);
+
+    button {
+        font-size: $font-size * 1.2;
+
+        &.small {
+            font-size: $font-size * 1.7;
+        }
+    }
 }
 
 .matrix-4 {
     @include matrix(4);
+
+    button {
+        font-size: $font-size * 1;
+
+        &.small {
+            font-size: $font-size * 1.4;
+        }
+    }
 }
 
 .matrix-5 {
     @include matrix(5);
+
+    button {
+        font-size: $font-size * .8;
+
+        &.small {
+            font-size: $font-size * 1.2;
+        }
+    }
 }
 
 // pill
@@ -245,7 +272,7 @@ select {
     padding: 0;
     display: inline-flex;
     flex-direction: row;
-    align-items: stretch;
+    align-items: baseline;
     margin: .2rem;
 
     button {
