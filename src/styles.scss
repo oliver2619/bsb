@@ -108,6 +108,11 @@ select {
         flex-grow: 1;
         flex-shrink: 1;
     }
+    
+    button {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
 
 // app
@@ -237,6 +242,10 @@ select {
         &.small {
             font-size: $font-size * 1.7;
         }
+
+        &.large {
+            font-size: $font-size * .8;
+        }
     }
 }
 
@@ -249,17 +258,26 @@ select {
         &.small {
             font-size: $font-size * 1.4;
         }
+
+        &.large {
+            font-size: $font-size * .7;
+        }
     }
 }
 
 .matrix-5 {
     @include matrix(5);
+    grid-gap: .25rem;
 
     button {
-        font-size: $font-size * .8;
+        font-size: $font-size * .9;
 
         &.small {
             font-size: $font-size * 1.2;
+        }
+
+        &.large {
+            font-size: $font-size * .6;
         }
     }
 }
@@ -298,10 +316,11 @@ select {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
+    height: 3rem;
+    
     h1 {
         display: inline-block;
-        font-size: $font-size * 1.2;
+        font-size: $font-size * 1.6;
     }
 
     .menu-bar-item-group {
@@ -330,7 +349,7 @@ select {
     .dropdown-item {
         display: block;
         padding: .5rem 1rem;
-        font-size: $font-size * 1.4;
+        font-size: $font-size * 1.6;
 
         a {
             text-decoration: none;

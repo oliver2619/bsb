@@ -25,6 +25,13 @@ export class GameComponent {
         this.matrix = gameService.matrix;
     }
 
+    getWordSizeClass(word: string): string {
+        const length = word.split(' ').sort((e1, e2) => e2.length - e1.length)[0].length;
+        if(length < 10)
+            return 'small';
+        return length > 16 ? 'large' : '';
+    }
+    
     reset(): void {
         this.matrix.forEach(row => {
             row.forEach(kw => kw.selected = false);
@@ -40,5 +47,5 @@ export class GameComponent {
                 this.reset();
             });
         }
-    }
+    }   
 }
