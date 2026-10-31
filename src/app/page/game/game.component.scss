@@ -1,0 +1,73 @@
+@use '../../../style/page.scss';
+
+@keyframes _drillIn {
+    from {
+        background-color: rgba(white, 0);
+        transform: rotate(90deg) scaleX(0) scaleY(0);
+    }
+
+    25% {
+        transform: rotate(-45deg) scaleX(0.25) scaleY(1);
+    }
+
+    50% {
+        transform: rotate(30deg) scaleX(1.2) scaleY(1.5);
+    }
+
+    75% {
+        transform: rotate(-15deg) scaleX(0.9) scaleY(0.9);
+    }
+
+    to {
+        transform: rotate(0deg) scaleX(1) scaleY(1);
+        background-color: rgba(white, 1);
+    }
+}
+
+:host {
+    position: relative;
+    overflow: hidden;
+    @extend .page;
+    @extend .stretch;
+    @extend .grow;
+}
+
+.fields {
+    padding: 0.5ex;
+    align-self: stretch;
+    flex: 1 1;
+    display: grid;
+    gap: 0.5ex 0.5ex;
+}
+
+@for $i from 3 through 5 {
+    .fields-#{$i} {
+        grid-template-columns: repeat($i, 1fr);
+        grid-template-rows: repeat($i, 1fr);
+    }
+}
+
+.messagebox {
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation-name: _drillIn;
+    animation-duration: 600ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+}
+
+.msgbox-content {
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}

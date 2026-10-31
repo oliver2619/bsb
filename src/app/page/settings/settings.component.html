@@ -1,0 +1,13 @@
+<h2 ptI18n="menu.settings"></h2>
+<form class="form-grid-2">
+    <label ptI18n="settings.theme" class="top"></label>
+    <div class="button-grid-4-landscape button-grid-2-portrait">
+        @for(c of colors; track c) {
+            <label><input type="radio" [formField]="form.theme" [value]="c" (change)="onChange()"><span ptI18n="settings.theme.{{ c }}"></span></label>
+        }
+    </div>
+    <label for="settings.fullscreen" ptI18n="settings.fullscreen"></label>
+    <input id="settings.fullscreen" type="checkbox" [formField]="form.fullscreen" (change)="onChange()">
+    <label for="settings.wakeLock" ptI18n="settings.wakeLock"></label>
+    <input id="settings.wakeLock" type="checkbox" [formField]="form.wakeLock" (change)="onChange()">
+</form>

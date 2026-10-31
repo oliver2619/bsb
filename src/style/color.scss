@@ -1,0 +1,65 @@
+$_transition: 400ms;
+
+$green-3: #00c000;
+
+$orange-3: #e07000;
+
+@mixin _colorPair($color, $bkgnd) {
+    color: $color;
+    background-color: $bkgnd;
+    transition: background-color $_transition linear, color $_transition linear;
+}
+
+@mixin menu() {
+
+    .theme-dark & {
+        @include _colorPair(white, #c0c0c0);
+
+        img {
+            filter: saturate(0%) contrast(0%) brightness(0%);
+        }
+    }
+
+    .theme-green & {
+        @include _colorPair(white, $green-3);
+        text-shadow: 0 0 2px white;
+
+        img {
+            filter: saturate(0%) contrast(0%) brightness(200%) drop-shadow(0 0 2px black);
+        }
+    }
+
+    .theme-orange & {
+        @include _colorPair(white, $orange-3);
+        text-shadow: 0 0 4px black, 0 0 2px white;
+
+        img {
+            filter: saturate(0%) contrast(0%) brightness(200%) drop-shadow(0 0 2px black);
+        }
+    }
+}
+
+@mixin _theme($color, $bkgnd, $color2) {
+
+    @include _colorPair($color, $bkgnd);
+
+    h1, h2, h3, strong {
+        color: $color2;
+        transition: color $_transition linear;
+    }
+}
+
+.theme-dark {
+
+    @include _theme(white, black, #80a0ff);
+}
+
+.theme-green {
+
+    @include _theme(black, white, $green-3);
+}
+
+.theme-orange {
+
+    @include _theme(black, white, $orange-3);
+}

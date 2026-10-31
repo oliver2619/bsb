@@ -1,0 +1,189 @@
+@use './font.scss';
+
+$_border-radius: 0.5ex;
+
+@mixin _form-grid($i) {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 1em 1.5em;
+    align-items: center;
+    justify-items: start;
+
+    & > .grow {
+        align-self: stretch;
+        justify-self: stretch;
+    }
+
+    & > .top {
+        align-self: start;
+    }
+}
+
+@for $i from 2 through 2 {
+    .form-grid-#{$i} {
+        @include _form-grid($i);
+    }    
+}
+
+@for $i from 2 through 2 {
+
+    @media (orientation: landscape) {
+        .form-grid-#{$i}-landscape {
+            @include _form-grid($i);
+        }    
+    }
+}
+
+@mixin _form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 1em;
+
+    & > .grow {
+        flex: 1 1;
+    }
+
+    & > input, & > .input-group, & > .form-group, & > select {
+        align-self: stretch;
+    }
+}
+
+.form {
+    @include _form();
+}
+
+@media (orientation: portrait) {
+    .form-portrait {
+        @include _form();
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 0.5ex;
+
+    & > input, & > .input-group, & > select, & > .stretch {
+        align-self: stretch;
+    }
+}
+
+label:has(input[type=radio]) {
+    border-radius: 2em;
+    padding: 0.5ex;
+    padding-right: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 0.5em;
+    background-color: #c0c0c0;
+}
+
+input[type=radio] {
+    appearance: none;
+    align-self: stretch;
+    aspect-ratio: 1;
+    outline: none;
+    border-radius: 2em;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+
+    &:not(:checked) {
+        background-image: url('../../public/icons/circle.svg');
+    }
+
+    &:checked {
+        background-image: url('../../public/icons/circle-dot.svg');
+    }
+}
+
+input[type=checkbox] {
+    appearance: none;
+    box-sizing: content-box;
+    height: 2.5ex;
+    aspect-ratio: 1;
+    margin: 0;
+    border: 4px solid #c0c0c0;
+    border-radius: 4px;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+
+    @include font.default(0);
+
+    &:checked {
+        background-image: url('../../public/icons/check.svg');
+    }
+}
+
+input[type=text] {
+    @include font.default(0);
+}
+
+.input-group {
+    border: 1px solid;
+    border-radius: $_border-radius;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    &:has(input:focus) {
+        outline: 0.25ex solid red;
+        border-color: red;
+    }
+
+    input {
+        flex: 1 1;
+    }
+
+    button:focus {
+        outline: 0.25ex solid red;
+    }
+
+    button:has(img) {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+
+        img {
+            aspect-ratio: 1;
+            height: 2.5ex;
+        }
+    }
+
+    input, button {
+        outline: none;
+        border: none;
+        border-radius: 0;
+        padding: 0.5em;
+        @include font.default(0);
+
+        &:first-child {
+            border-top-left-radius: $_border-radius;
+            border-bottom-left-radius: $_border-radius;
+        }
+
+        &:last-child {
+            border-top-right-radius: $_border-radius;
+            border-bottom-right-radius: $_border-radius;
+        }
+
+        &:nth-child(n + 2) {
+            border-left: 1px solid;
+        }
+    }
+}
+
+select {
+    appearance: none;
+    outline: none;
+    border-radius: $_border-radius;
+    padding: 0.5em;
+    @include font.default(0);
+}

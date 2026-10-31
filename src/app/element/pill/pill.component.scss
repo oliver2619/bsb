@@ -1,0 +1,5 @@
+@use '../../../style/pill.scss';
+
+:host {
+    @extend .pill;
+}

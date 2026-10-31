@@ -1,0 +1,21 @@
+@use './animation.scss';
+@use './button.scss';
+@use './color.scss';
+@use './form.scss';
+@use './menu.scss';
+@use './pill.scss';
+@use './text.scss';
+
+html {
+    height: 100%;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+router-outlet {
+    position: absolute;
+}
+
+.debug-red {
+    border: 1px solid red !important;
+}

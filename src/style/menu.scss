@@ -1,0 +1,62 @@
+@use "./color.scss";
+@use "./font.scss";
+
+$_border-radius: 0.75em;
+$_box-shadow: 0 0.25em 1em rgba(black, 0.66);
+
+.menu {
+    box-shadow: $_box-shadow;
+    border-bottom-left-radius: $_border-radius;
+    border-bottom-right-radius: $_border-radius;
+    padding: 0 1em;
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    @include font.default(0, 400);
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        column-gap: 1em;    
+    }
+
+    @include color.menu();
+
+    a {
+        padding: 0.5ex 0;
+    }
+}
+
+.popup {
+    border: 2px solid white;
+    box-shadow: $_box-shadow;
+    position: absolute;
+    border-radius: $_border-radius;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    z-index: 100;
+    background-color: black;
+    @include font.default(0, 400);
+    @include color.menu();
+
+    a {
+        padding: 1ex 1em;
+    }
+}
+
+.menu a, .popup a {
+    cursor: default;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+
+    img {
+        height: 2ex;
+    }
+}

@@ -1,0 +1,8 @@
+@use '../../../style/page.scss';
+
+:host {
+    @extend .page;
+    @extend .padding;
+    @extend .stretch;
+    @extend .grow;
+}

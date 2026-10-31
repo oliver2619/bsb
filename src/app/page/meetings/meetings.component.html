@@ -1,0 +1,22 @@
+<h1 ptI18n="menu.meetings"></h1>
+<div class="parts-long grow stretch">
+    <div class="form-group">
+        <label for="meetings.name" ptI18n="meetings.newMeeting"></label>
+        <div class="input-group">
+            <input #newMeeting id="meetings.name" type="text" [formField]="form.name" (keydown.enter)="onEnterNewMeeting()" size="20" ptAutofocus placeholder="{{ 'meetings.newMeeting.placeholder' | i18n }}" autocomplete="off">
+            <button type="button" [ptEnabledIf]="canAdd()" (click)="onAdd()"><img src="icons/plus.svg"></button>
+        </div>    
+    </div>
+    <div class="form-group stretch grow">
+        <label ptI18n="meetings.all"></label>
+        <div class="scrolling">
+            <ul>
+                @for(m of meetings(); track m) {
+                    <li>
+                        <bb-pill [name]="m" [maxlength]="40" (delete)="onDelete(m)" (edit)="onChange(m, $event)"></bb-pill>
+                    </li>
+                }
+            </ul>    
+        </div>
+    </div>
+</div>

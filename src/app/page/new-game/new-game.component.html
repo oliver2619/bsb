@@ -1,0 +1,19 @@
+<h1 ptI18n="menu.newGame"></h1>
+<form class="form-grid-2-landscape form-portrait">
+    <div class="form-group">
+        <label for="newGame.meeting" ptI18n="newGame.meeting"></label>
+        <select id="newGame.meeting" [formField]="form.meeting" (change)="onMeetingChange()">
+            @for(m of meetingNames(); track m) {
+                <option [value]="m">{{ m }}</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label ptI18n="newGame.level"></label>
+        <div class="button-grid-3">
+            <button type="button" [ptEnabledIf]="canStartEasy()" (click)="onStartEasy()" ptI18n="newGame.level.easy"></button>
+            <button type="button" [ptEnabledIf]="canStartMedium()" (click)="onStartMedium()" ptI18n="newGame.level.medium"></button>
+            <button type="button" [ptEnabledIf]="canStartHard()" (click)="onStartHard()" ptI18n="newGame.level.hard"></button>
+        </div>    
+    </div>
+</form>

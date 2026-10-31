@@ -1,0 +1,32 @@
+<h1 ptI18n="menu.buzzwords"></h1>
+<div class="parts-long grow stretch">
+    <div class="form">
+        <div class="form-group">
+            <label for="buzzwords.meeting" ptI18n="buzzwords.meeting"></label>
+            <select id="buzzwords.meeting" [formField]="form.meeting" (change)="onMeetingChange()">
+                @for(m of meetings(); track m) {
+                    <option [value]="m">{{ m }}</option>
+                }
+            </select>    
+        </div>
+        <div class="form-group">
+            <label for="buzzwords.word" ptI18n="buzzwords.newWord"></label>
+            <div class="input-group">
+                <input #name id="buzzwords.word" type="text" [formField]="form.word" (keydown.enter)="onEnterName()" size="20" placeholder="{{ 'buzzwords.newWord.placeholder' | i18n }}" ptAutofocus autocomplete="none">
+                <button type="button" [ptEnabledIf]="canAdd()" (click)="onAdd()"><img src="icons/plus.svg"></button>
+            </div>    
+        </div>
+    </div>
+    <div class="form-group stretch grow">
+        <label><span ptI18n="buzzwords.allWords"></span><span> ({{ numberOfWords() }})</span></label>
+        <div class="scrolling">
+            <ul>
+                @for(w of words(); track w) {
+                    <li>
+                        <bb-pill [name]="w" [maxlength]="40" (delete)="onDelete(w)" (edit)="onEdit(w, $event)"></bb-pill>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+$_scale: 1.2;
+
+@keyframes bullshit {
+    
+    from {
+        transform: scale(1);
+    }
+
+    12% {
+        transform: scale(1);
+    }
+
+    19% {
+        transform: scale($_scale);
+    }
+
+    37% {
+        transform: scale(1);
+    }
+
+    44% {
+        transform: scale($_scale);
+    }
+
+    62% {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.bullshit {
+    display: inline-block;
+    animation-name: bullshit;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}

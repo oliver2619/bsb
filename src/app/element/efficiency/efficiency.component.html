@@ -1,0 +1,3 @@
+@for (b of bullets(); track i; let i = $index) {
+    <div class="bullet" [class]="{ on: b }" [style.animation-delay.ms]="i * 200"></div>
+}

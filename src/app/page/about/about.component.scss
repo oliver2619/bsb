@@ -1,0 +1,6 @@
+@use '../../../style/page.scss';
+
+:host {
+    @extend .page;
+    @extend .scrolling;
+}

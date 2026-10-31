@@ -1,0 +1,20 @@
+{
+  "keywords": [
+    [
+      { "name": "Five", "selected": false },
+      { "name": "Nine", "selected": false },
+      { "name": "Two", "selected": true }
+    ],
+    [
+      { "name": "Seven", "selected": false },
+      { "name": "Four", "selected": false },
+      { "name": "Three", "selected": true }
+    ],
+    [
+      { "name": "Six", "selected": false },
+      { "name": "One", "selected": true },
+      { "name": "Eight", "selected": false }
+    ]
+  ],
+  "version": 1
+}

@@ -2,5 +2,7 @@
 
 ## TODO
 
+* game
+    * fullscreen
+* colors
 * Sound
-* Locales de

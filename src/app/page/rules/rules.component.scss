@@ -1,0 +1,8 @@
+@use '../../../style/page.scss';
+
+:host {
+    max-width: 40em;
+    @extend .page;
+    @extend .padding;
+    @extend .center;
+}

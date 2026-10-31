@@ -1,0 +1,74 @@
+@use './font.scss';
+
+ul:has(bb-pill), ul:has(.pill) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+    justify-content: space-between;
+
+    li {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.pill {
+    border-radius: 2em;
+    padding: 0.5ex;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    column-gap: 0.5ex;
+    color: white;
+    background-color: #c00000;
+
+    button {
+        position: relative;
+        border: none;
+        border-radius: 2em;
+        padding: 0.5ex;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: black;
+        background-color: white;
+
+        @include font.default(0);
+
+        img {
+            aspect-ratio: 1;
+            height: 2.5ex;
+        }
+    }
+
+    div.nameRO {
+        box-sizing: border-box;
+        max-width: 10em;
+        padding: 0.5ex 0.5em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-overflow: ellipsis !important;
+        white-space: nowrap;
+        overflow: hidden;
+
+        @include font.default(0, 400);
+    }
+
+    input {
+        outline: none;
+        border: none;
+        border-radius: 2em;
+        padding: 0.5ex 0.5em;
+        color: black;
+        background-color: white;
+
+        @include font.default(0);
+    }
+}

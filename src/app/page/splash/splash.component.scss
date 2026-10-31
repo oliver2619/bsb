@@ -1,0 +1,39 @@
+@use '../../../style/page.scss';
+
+:host {
+    align-items: center;
+    justify-content: space-evenly;
+    @extend .page;
+    @extend .center;
+    @extend .grow;
+}
+
+$_duration: 2s;
+
+@keyframes fadein {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+h1 {
+    animation-name: fadein;
+    animation-duration: $_duration;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    text-align: center;
+}
+
+h2 {
+    animation-name: fadein;
+    animation-duration: $_duration;
+    animation-timing-function: ease-in-out;
+    animation-delay: $_duration;
+    animation-fill-mode: both;
+    text-align: center;
+}

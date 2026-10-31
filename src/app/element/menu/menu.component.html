@@ -1,0 +1,29 @@
+<div class="menu">
+    <nav>
+        @if (gameOngoing()) {
+            <a routerLink="/game" routerLinkActive="active" ptI18n="menu.game"></a>
+        } @else {
+            <a routerLink="/meetings" routerLinkActive="active" ptI18n="menu.meetings"></a>
+            @if(meetingsExist()) {
+                <a routerLink="/buzzwords" routerLinkActive="active" ptI18n="menu.buzzwords"></a>
+            }
+            @if(enoughWords()) {
+                <a routerLink="/new-game" routerLinkActive="active" ptI18n="menu.newGame"></a>
+            }
+        }
+    </nav>
+    <nav>
+        @if(gameVisible()) {
+            <a (click)="onReset()" ptI18n="game.reset"></a>
+            <a (click)="onExitGame()" ptI18n="game.exit"></a>    
+        }
+    </nav>
+    <nav>
+        <a [ptDropDownButton]="dropdown"><img src="icons/menu.svg"></a>
+    </nav>        
+</div>
+<div class="popup" #dropdown>
+    <a routerLink="/settings" routerLinkActive="active" ptI18n="menu.settings"></a>
+    <a routerLink="/rules" routerLinkActive="active" ptI18n="menu.rules"></a>
+    <a routerLink="/about" routerLinkActive="active" ptI18n="menu.about"></a>        
+</div>

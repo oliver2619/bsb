@@ -1,0 +1,11 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Numbers",
+      "keywords": ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+    }
+  ],
+  "nextId": 2,
+  "version": 1
+}

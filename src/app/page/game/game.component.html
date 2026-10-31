@@ -1,0 +1,18 @@
+<div class="fields fields-{{ size() }}" [ptWakeLock]="this.wakeLock()">
+@for(w of words(); track w.word; let i = $index) {
+    <bb-field [word]="w.word" [checked]="w.checked" (click)="onToggle(i)"></bb-field>
+}
+</div>
+@if(finished()) {
+    <div class="messagebox">
+        <div class="msgbox-content">
+            <h1 *ptIfLang="'de'">Steh auf und schrei laut <strong class="bullshit">BULLSHIT!!!</strong></h1>
+            <h1 *ptIfLang="'en'">Stand up and loudly shout <strong class="bullshit">BULLSHIT!!!</strong></h1>
+            <h2 ptI18n="game.over.won"></h2>
+            <div class="form-group">
+                <label><span ptI18n="game.efficiency"></span>:&nbsp;{{ efficiency() * 100 | number: '1.0-0'}}&nbsp;%</label>
+                <bb-efficiency [value]="efficiency()"></bb-efficiency>
+            </div>
+        </div>
+    </div>
+}

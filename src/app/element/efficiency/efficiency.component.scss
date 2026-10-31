@@ -1,0 +1,43 @@
+@keyframes _popup {
+    from {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    75% {
+        transform: scale(0.9);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+:host {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 0.1em;
+}
+
+.bullet {
+    width: 2ex;
+    height: 1ex;
+    border: 1px solid #0080c0;
+    border-radius: 0.1em;
+    animation-name: _popup;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+
+    &.on {
+        background-color: #0080c0;
+    }
+
+    &:not(.on) {
+        background-color: white;
+    }
+}
