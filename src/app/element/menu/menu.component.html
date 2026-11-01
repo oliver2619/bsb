@@ -1,7 +1,7 @@
 <div class="menu">
     <nav>
         @if (gameOngoing()) {
-            <a routerLink="/game" routerLinkActive="active" ptI18n="menu.game"></a>
+            <a routerLink="/game" routerLinkActive="active" class="meeting-title">{{ meeting() }}</a>
         } @else {
             <a routerLink="/meetings" routerLinkActive="active" ptI18n="menu.meetings"></a>
             @if(meetingsExist()) {
@@ -19,11 +19,12 @@
         }
     </nav>
     <nav>
-        <a [ptDropDownButton]="dropdown"><img src="icons/menu.svg"></a>
+        <a routerLink="/settings" routerLinkActive="active" ptI18n="menu.settings" class="hidden-portrait"></a>
+        <a [ptDropDownButton]="dropdown"><img src="icons/menu.svg" draggable="false"></a>
     </nav>        
 </div>
 <div class="popup" #dropdown>
-    <a routerLink="/settings" routerLinkActive="active" ptI18n="menu.settings"></a>
+    <a routerLink="/settings" routerLinkActive="active" ptI18n="menu.settings" class="visible-portrait"></a>
     <a routerLink="/rules" routerLinkActive="active" ptI18n="menu.rules"></a>
     <a routerLink="/about" routerLinkActive="active" ptI18n="menu.about"></a>        
 </div>

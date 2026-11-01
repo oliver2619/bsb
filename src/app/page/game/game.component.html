@@ -1,4 +1,4 @@
-<div class="fields fields-{{ size() }}" [ptWakeLock]="this.wakeLock()">
+<div class="fields fields-{{ size() }}" [ptWakeLock]="this.wakeLock()" [ptFullscreen]="fullscreen()">
 @for(w of words(); track w.word; let i = $index) {
     <bb-field [word]="w.word" [checked]="w.checked" (click)="onToggle(i)"></bb-field>
 }

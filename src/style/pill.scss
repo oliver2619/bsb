@@ -25,19 +25,16 @@ ul:has(bb-pill), ul:has(.pill) {
     flex-direction: row;
     align-items: stretch;
     column-gap: 0.5ex;
-    color: white;
-    background-color: #c00000;
 
     button {
         position: relative;
+        outline: none;
         border: none;
         border-radius: 2em;
         padding: 0.5ex;
         display: flex;
         flex-direction: row;
         align-items: center;
-        color: black;
-        background-color: white;
 
         @include font.default(0);
 
@@ -66,9 +63,7 @@ ul:has(bb-pill), ul:has(.pill) {
         border: none;
         border-radius: 2em;
         padding: 0.5ex 0.5em;
-        color: black;
-        background-color: white;
 
-        @include font.default(0);
+        @include font.default(0, 400);
     }
 }

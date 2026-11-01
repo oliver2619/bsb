@@ -2,16 +2,14 @@
 
 :host {
     transform: scale(0.9);
-    border: 1px solid black;
     border-radius: 0.5rem;
-    box-shadow: 0 0 0.25rem black;
     padding: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     text-align: center;
-    transition: transform 400ms ease-in-out;
+    transition: transform 400ms ease-in-out, box-shadow 400ms ease-in-out;
 
     &.checked {
         transform: scale(1);

@@ -2,7 +2,6 @@
 
 @keyframes _drillIn {
     from {
-        background-color: rgba(white, 0);
         transform: rotate(90deg) scaleX(0) scaleY(0);
     }
 
@@ -20,7 +19,6 @@
 
     to {
         transform: rotate(0deg) scaleX(1) scaleY(1);
-        background-color: rgba(white, 1);
     }
 }
 

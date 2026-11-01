@@ -7,7 +7,7 @@ import { EnabledIfDirective, AutofocusDirective } from '@pluto-ngtools/component
 import { meetingsActions } from '../../action/meetings.action';
 import { PillComponent } from '../../element/pill/pill.component';
 
-const NAME_MIN_LENGTH = 3;
+const NAME_MIN_LENGTH = 2;
 const NAME_MAX_LENGTH = 40;
 
 @Component({

@@ -2,7 +2,4 @@
 
 ## TODO
 
-* game
-    * fullscreen
-* colors
 * Sound

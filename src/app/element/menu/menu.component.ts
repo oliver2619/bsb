@@ -2,7 +2,7 @@ import { Component, computed, inject, input} from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { I18nDirective } from '@pluto-ngtools/i18n';
-import { gameOngoingSelector } from '../../selector/game.selector';
+import { gameCurrentMeetingSelector, gameOngoingSelector } from '../../selector/game.selector';
 import { DropDownButtonDirective } from '@pluto-ngtools/component';
 import { meetingsExistSelector, meetingsHasEnoughWordsForGameSelector } from '../../selector/meetings.selector';
 import { gameActions } from '../../action/game.action';
@@ -23,6 +23,7 @@ export class MenuComponent {
   readonly gameOngoing = this.store.selectSignal(gameOngoingSelector);
   readonly meetingsExist = this.store.selectSignal(meetingsExistSelector);
   readonly enoughWords = this.store.selectSignal(meetingsHasEnoughWordsForGameSelector);
+  readonly meeting = this.store.selectSignal(gameCurrentMeetingSelector);
 
   onReset() {
     this.store.dispatch(gameActions.reset());

@@ -1,10 +1,10 @@
 @if(isEditMode()) {
     <input #input type="text" [maxLength]="maxlength()" (blur)="onCancel()" (keydown.enter)="onChange($event.target.value)" (keydown.esc)="onCancel()" size="10" autocomplete="off">
-    <button type="button" (click)="onChange(input.value)"><img src="icons/check.svg"></button>
-    <button type="button" (click)="onCancel()"><img src="icons/xmark.svg"></button>
+    <button type="button" (click)="onChange(input.value)"><img src="icons/check.svg" draggable="false"></button>
+    <button type="button" (click)="onCancel()"><img src="icons/xmark.svg" draggable="false"></button>
 } @else {
     <div (click)="onEdit($event)" class="nameRO">{{ name() }}</div>
-    <button type="button" [ptDropDownButton]="question"><img src="icons/trash.svg"></button>
+    <button type="button" [ptDropDownButton]="question"><img src="icons/trash.svg" draggable="false"></button>
 }
 <div #question class="popup">
     <a (click)="onDelete()" ptI18n="deleteElementSecurityQuestion"></a>

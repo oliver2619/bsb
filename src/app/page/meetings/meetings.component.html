@@ -4,7 +4,7 @@
         <label for="meetings.name" ptI18n="meetings.newMeeting"></label>
         <div class="input-group">
             <input #newMeeting id="meetings.name" type="text" [formField]="form.name" (keydown.enter)="onEnterNewMeeting()" size="20" ptAutofocus placeholder="{{ 'meetings.newMeeting.placeholder' | i18n }}" autocomplete="off">
-            <button type="button" [ptEnabledIf]="canAdd()" (click)="onAdd()"><img src="icons/plus.svg"></button>
+            <button type="button" [ptEnabledIf]="canAdd()" (click)="onAdd()"><img src="icons/plus.svg" draggable="false"></button>
         </div>    
     </div>
     <div class="form-group stretch grow">

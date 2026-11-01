@@ -8,3 +8,5 @@ export const gameOngoingSelector = createSelector(gameSelector, g => !g.finished
 export const gameWordsSelector = createSelector(gameSelector, g => g.words);
 
 export const gameFinishedSelector = createSelector(gameSelector, g => g.finished);
+
+export const gameCurrentMeetingSelector = createSelector(gameSelector, g => g.meeting);

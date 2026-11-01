@@ -1,3 +1,5 @@
+@use 'sass:map';
+@use './color.scss';
 @use './font.scss';
 
 @mixin _button-grid($i) {
@@ -8,15 +10,23 @@
     justify-items: stretch;
 }
 
-@mixin button {
+@mixin default {
     border: none;
     border-radius: 1ex;
     padding: 1ex 1em;
-    @include font.default(0);
+    @include font.default(0, 400);
+
+    @each $theme-name, $theme-map in color.$theme {
+
+        .theme-#{"" + $theme-name} & {
+            text-shadow: 0 0 4px map.get($theme-map, text-shadow-3), 0 0 2px map.get($theme-map, text-color-3);
+            @include color.pair(map.get($theme-map, text-color-3), map.get($theme-map, background-color-3));
+        }
+    }
 }
 
 button.button {
-    @include button();
+    @include default();
 }
 
 button:disabled {
@@ -30,7 +40,7 @@ button:disabled {
             @include _button-grid($i);
 
             button {
-                @include button();
+                @include default();
             }            
         }    
     }
@@ -43,8 +53,8 @@ button:disabled {
             @include _button-grid($i);
     
             button {
-                @include button();
-            }            
+                @include default();
+            }
         }
     }
 }
@@ -55,7 +65,7 @@ button:disabled {
         @include _button-grid($i);
 
         button {
-            @include button();
+            @include default();
         }
     }    
 }

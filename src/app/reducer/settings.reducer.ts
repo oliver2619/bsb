@@ -1,7 +1,7 @@
 import { createReducer, on } from "@ngrx/store";
 import { SettingsState } from "../state/settings.state";
 import { settingsActions, SettingsLoadAction, SettingsSelectMeetingAction, SettingsSetAction } from "../action/settings.action";
-import { meetingsActions, MeetingsDeleteAction } from "../action/meetings.action";
+import { meetingsActions, MeetingsDeleteAction, MeetingsRenameAction } from "../action/meetings.action";
 
 const initialState: SettingsState = {
     fullscreen: false,
@@ -18,6 +18,13 @@ function onDeleteMeeting(state: SettingsState, action: MeetingsDeleteAction): Se
         defaultMeeting: modified ? '' : state.defaultMeeting,
         modified,
     }
+}
+
+function onRenameMeeting(state: SettingsState, action: MeetingsRenameAction): SettingsState {
+    return {
+        ...state,
+        defaultMeeting: state.defaultMeeting === action.oldName ? action.newName : state.defaultMeeting,
+    };
 }
 
 function onLoad(_state: SettingsState, action: SettingsLoadAction): SettingsState {
@@ -58,6 +65,7 @@ function onSet(state: SettingsState, action: SettingsSetAction): SettingsState {
 export const settingsReducer = createReducer(
     initialState,
     on(meetingsActions.deleteMeeting, onDeleteMeeting),
+    on(meetingsActions.renameMeeting, onRenameMeeting),
     on(settingsActions.load, onLoad),
     on(settingsActions.save, onSave),
     on(settingsActions.selectMeeting, onSelectMeeting),

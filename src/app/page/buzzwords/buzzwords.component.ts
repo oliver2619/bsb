@@ -9,7 +9,7 @@ import { meetingsActions } from '../../action/meetings.action';
 import { settingsActions } from '../../action/settings.action';
 import { settingsDefaultMeetingSelector } from '../../selector/settings.selector';
 
-const NAME_MIN_LENGTH = 3;
+const NAME_MIN_LENGTH = 2;
 const NAME_MAX_LENGTH = 40;
 
 @Component({

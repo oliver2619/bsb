@@ -1,65 +1,272 @@
-$_transition: 400ms;
+@use 'sass:map';
 
-$green-3: #00c000;
+$_transition: 100ms;
 
-$orange-3: #e07000;
+$theme: (
+    "red": (
+        text-color: black,
+        background-color: white,
+        text-color-2: #f30151,
+        text-shadow-2: none,
+        text-color-3: white,
+        text-shadow-3: black,
+        background-color-3: #f30151,
+        icon-filter-1: saturate(0%) contrast(0%) brightness(200%) drop-shadow(0 0 2px black),
+        icon-filter-2: hue-rotate(350deg),
+        icon-background-2: white,
+    ),
+    "orange": (
+        text-color: black,
+        background-color: white,
+        text-color-2: #ff8811,
+        text-shadow-2: none,
+        text-color-3: white,
+        text-shadow-3: black,
+        background-color-3: #ff8811,
+        icon-filter-1: saturate(0%) contrast(0%) brightness(200%) drop-shadow(0 0 2px black),
+        icon-filter-2: hue-rotate(30deg) brightness(450%),
+        icon-background-2: white,
+    ),
+    "yellow": (
+        text-color: black,
+        background-color: white,
+        text-color-2: #ffdd00,
+        text-shadow-2: 0 0 1px black,
+        text-color-3: black,
+        text-shadow-3: white,
+        background-color-3: #ffec3d,
+        icon-filter-1: saturate(0%) contrast(0%) brightness(200%) drop-shadow(0 0 2px black),
+        icon-filter-2: hue-rotate(70deg) brightness(350%) drop-shadow(0 0 1px black),
+        icon-background-2: white,
+    ),
+    "green": (
+        text-color: black,
+        background-color: white,
+        text-color-2: #00b800,
+        text-shadow-2: none,
+        text-color-3: white,
+        text-shadow-3: black,
+        background-color-3: #00b800,
+        icon-filter-1: saturate(0%) contrast(0%) brightness(200%) drop-shadow(0 0 2px black),
+        icon-filter-2: hue-rotate(90deg) brightness(200%),
+        icon-background-2: white,
+    ),
+    "blue": (
+        text-color: black,
+        background-color: white,
+        text-color-2: #0077e7,
+        text-shadow-2: none,
+        text-color-3: white,
+        text-shadow-3: black,
+        background-color-3: #0077e7,
+        icon-filter-1: saturate(0%) contrast(0%) brightness(200%) drop-shadow(0 0 2px black),
+        icon-filter-2: hue-rotate(240deg) brightness(200%),
+        icon-background-2: white,
+    ),
+    "violet": (
+        text-color: black,
+        background-color: white,
+        text-color-2: #b011e6,
+        text-shadow-2: none,
+        text-color-3: white,
+        text-shadow-3: black,
+        background-color-3: #b011e6,
+        icon-filter-1: saturate(0%) contrast(0%) brightness(200%) drop-shadow(0 0 2px black),
+        icon-filter-2: hue-rotate(290deg) brightness(100%),
+        icon-background-2: white,
+    ),
+    "pink": (
+        text-color: black,
+        background-color: white,
+        text-color-2: #f97992,
+        text-shadow-2: none,
+        text-color-3: white,
+        text-shadow-3: black,
+        background-color-3: #f97992,
+        icon-filter-1: saturate(0%) contrast(0%) brightness(200%) drop-shadow(0 0 2px black),
+        icon-filter-2: hue-rotate(0deg) saturate(45%) brightness(400%),
+        icon-background-2: white,
+        ),
+    "dark": (
+        text-color: white,
+        background-color: black,
+        text-color-2: #80c0ff,
+        text-shadow-2: none,
+        text-color-3: black,
+        text-shadow-3: white,
+        background-color-3: #a9d4ff,
+        icon-filter-1: saturate(0%) contrast(0%) brightness(0%),
+        icon-filter-2: hue-rotate(240deg) saturate(20%) brightness(400%) drop-shadow(0 0 1px white),
+        icon-background-2: black,
+    ),
+    "neon": (
+        text-color: white,
+        background-color: black,
+        text-color-2: #fe8ca3,
+        text-shadow-2: none,
+        text-color-3: black,
+        text-shadow-3: white,
+        background-color-3: #ffb3c2,
+        icon-filter-1: saturate(0%) contrast(0%) brightness(0%),
+        icon-filter-2: hue-rotate(0deg) saturate(30%) brightness(500%) drop-shadow(0 0 1px white),
+        icon-background-2: black,
+    ),
+    "gold": (
+        text-color: white,
+        background-color: black,
+        text-color-2: #feeea8,
+        text-shadow-2: none,
+        text-color-3: black,
+        text-shadow-3: white,
+        background-color-3: #feeea8,
+        icon-filter-1: saturate(0%) contrast(0%) brightness(0%),
+        icon-filter-2: hue-rotate(60deg) saturate(30%) brightness(400%) drop-shadow(0 0 1px white),
+        icon-background-2: black,
+    ),
+);
 
-@mixin _colorPair($color, $bkgnd) {
+@mixin _colorTransition {
+    transition: background-color $_transition linear, color $_transition linear, text-shadow $_transition linear, border $_transition linear;
+}
+
+@mixin pair($color, $bkgnd) {
     color: $color;
     background-color: $bkgnd;
-    transition: background-color $_transition linear, color $_transition linear;
+    @include _colorTransition();
 }
 
-@mixin menu() {
+@mixin _theme($theme-map) {
 
-    .theme-dark & {
-        @include _colorPair(white, #c0c0c0);
-
-        img {
-            filter: saturate(0%) contrast(0%) brightness(0%);
-        }
-    }
-
-    .theme-green & {
-        @include _colorPair(white, $green-3);
-        text-shadow: 0 0 2px white;
-
-        img {
-            filter: saturate(0%) contrast(0%) brightness(200%) drop-shadow(0 0 2px black);
-        }
-    }
-
-    .theme-orange & {
-        @include _colorPair(white, $orange-3);
-        text-shadow: 0 0 4px black, 0 0 2px white;
-
-        img {
-            filter: saturate(0%) contrast(0%) brightness(200%) drop-shadow(0 0 2px black);
-        }
-    }
-}
-
-@mixin _theme($color, $bkgnd, $color2) {
-
-    @include _colorPair($color, $bkgnd);
+    @include pair(map.get($theme-map, text-color), map.get($theme-map, background-color));
 
     h1, h2, h3, strong {
-        color: $color2;
-        transition: color $_transition linear;
+        color: map.get($theme-map, text-color-2);
+        text-shadow: map.get($theme-map, text-shadow-2);
+        @include _colorTransition();
+    }
+
+    .menu, .popup {
+        box-shadow: 0 0.25em 1em rgba(map.get($theme-map, text-color), 0.66);
+        text-shadow: 0 0 4px map.get($theme-map, text-shadow-3), 0 0 2px map.get($theme-map, text-color-3);
+
+        @include pair(map.get($theme-map, text-color-3), map.get($theme-map, background-color-3));
+
+        img {
+            filter: map.get($theme-map, icon-filter-1);
+        }
+    }
+
+    .pill {
+        text-shadow: 0 0 4px map.get($theme-map, text-shadow-3), 0 0 2px map.get($theme-map, text-color-3);
+        @include pair(map.get($theme-map, text-color-3), map.get($theme-map, background-color-3));
+
+        button {
+            background-color: map.get($theme-map, icon-background-2);
+
+            img {
+                filter: map.get($theme-map, icon-filter-2);
+            }
+        }
+
+        input {
+            @include pair(map.get($theme-map, text-color), map.get($theme-map, background-color));
+        }
+    }
+
+    label:has(input[type=radio]) {
+        text-shadow: 0 0 1px map.get($theme-map, text-color-3);
+        @include pair(map.get($theme-map, text-color-3), map.get($theme-map, background-color-3));
+    }
+
+    input[type=radio] {
+        @include _colorTransition();
+
+        &:not(:checked) {
+            box-shadow: inset 0 0 5px black;
+            background-color: map.get($theme-map, text-color-3);
+        }
+
+        &:checked {
+            box-shadow: 0 0 5px black;
+            background-color: map.get($theme-map, background-color-3);
+        }
+    }
+
+    input[type=checkbox] {
+        border-color: map.get($theme-map, text-color-2);
+        @include _colorTransition();
+
+        &:checked {
+            box-shadow: inset 0 0 5px map.get($theme-map, background-color);
+            background-color: map.get($theme-map, text-color-2);
+        }
+
+        &:not(:checked) {
+            box-shadow: inset 0 0 5px map.get($theme-map, text-color);
+            background-color: map.get($theme-map, background-color);
+        }
+    }
+
+    input[type=text] {
+        @include pair(map.get($theme-map, text-color), map.get($theme-map, background-color));
+
+        &::placeholder {
+            color: map.get($theme-map, text-color);
+        }
+    }
+
+    .input-group {
+        &:has(input:focus) {
+            outline: 0.3ex solid map.get($theme-map, background-color-3);
+            border-color: map.get($theme-map, background-color-3);    
+        }
+
+        button {
+            box-shadow: 0 0 2px map.get($theme-map, background-color-3);
+            background-color: map.get($theme-map, background-color-3);
+
+            &:focus {
+                outline: 0.3ex solid map.get($theme-map, background-color-3);
+                border-color: map.get($theme-map, background-color-3);
+            }
+
+            img {
+                filter: map.get($theme-map, icon-filter-1);
+            }
+        }
+    }
+
+    bb-field {
+        box-shadow: 0 0 0.1em rgba(map.get($theme-map, text-color), 0.66);
+        color: map.get($theme-map, text-color-3);
+        text-shadow: 0 0 4px map.get($theme-map, text-shadow-3), 0 0 2px map.get($theme-map, text-color-3);
+        background-color: map.get($theme-map, background-color-3);
+
+        &.checked {
+            box-shadow: 0 0 0.5em rgba(map.get($theme-map, text-color), 0.66);
+        }
+    }
+
+    bb-game .messagebox {
+        background-color: map.get($theme-map, background-color);
+    }
+
+    .bullet {
+        border-color: map.get($theme-map, text-color-2);
+
+        &.on {
+            background-color: map.get($theme-map, text-color-2);
+        }
+
+        &:not(.on) {
+            background-color: map.get($theme-map, background-color);
+        }
     }
 }
 
-.theme-dark {
+@each $theme-name, $theme-map in $theme {
 
-    @include _theme(white, black, #80a0ff);
-}
-
-.theme-green {
-
-    @include _theme(black, white, $green-3);
-}
-
-.theme-orange {
-
-    @include _theme(black, white, $orange-3);
+    .theme-#{"" + $theme-name} {
+        @include _theme($theme-map);    
+    }
 }

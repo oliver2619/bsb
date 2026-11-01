@@ -13,7 +13,7 @@
             <label for="buzzwords.word" ptI18n="buzzwords.newWord"></label>
             <div class="input-group">
                 <input #name id="buzzwords.word" type="text" [formField]="form.word" (keydown.enter)="onEnterName()" size="20" placeholder="{{ 'buzzwords.newWord.placeholder' | i18n }}" ptAutofocus autocomplete="none">
-                <button type="button" [ptEnabledIf]="canAdd()" (click)="onAdd()"><img src="icons/plus.svg"></button>
+                <button type="button" [ptEnabledIf]="canAdd()" (click)="onAdd()"><img src="icons/plus.svg" draggable="false"></button>
             </div>    
         </div>
     </div>
